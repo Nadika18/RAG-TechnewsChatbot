@@ -14,6 +14,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 import os
+from keys import HF_token,Cohere_API_token
 
 st.session_state.clicked=True
 def process_data_sample(context,query):
@@ -39,7 +40,7 @@ def create_bot():
 
   text_splitter=RecursiveCharacterTextSplitter(chunk_size=512,chunk_overlap=50)
   text_splits=text_splitter.split_documents(documents)
-  HF_token='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'
+  HF_token=HF_token
   os.environ['HUGGINGFACEHUB_API_TOKEN'] = HF_token
   embeddings=HuggingFaceInferenceAPIEmbeddings(
     api_key=HF_token,
@@ -54,7 +55,7 @@ def create_bot():
   model=HuggingFaceHub(repo_id='HuggingFaceH4/zephyr-7b-alpha',
                      model_kwargs={"temperature":0.5,"max_new_tokens":512,"max_length":64}
 )
-  Cohere_API_token='yJJo9CD1qw1wels1SGeexeCPeBKKbLvD0RFXnRmY'
+  Cohere_API_token=Cohere_API_token
   os.environ["COHERE_API_KEY"] =Cohere_API_token
   compressor = CohereRerank()
   compression_retriever = ContextualCompressionRetriever(
