@@ -11,7 +11,11 @@ This is a chatbot implemented using concept of RAG with Tech-News Dataset on Zep
   TechNews dataset: [ BBC Dataset
 ](http://mlg.ucd.ie/datasets/bbc.html)http://mlg.ucd.ie/datasets/bbc.html
 
-* RAG Technique Used:
-* Vector Database :
-* No Hallucination
-* Checking correctness of LLM responses for user queries
+*** RAG Technique Used: **Hybrid Search and Re-ranking to retrieve document faster provided with the given context.
+*** Vector Database : FAISS**
+  Vector databases are particularly optimized for similarity search. This means they are capable of quickly finding vectors that are closest (or most similar) to a given query vector.
+
+FAISS (Facebook AI Similarity Search), developed by Facebook’s AI team is specifically engineered for the efficient similarity search and clustering of dense vectors. FAISS excels in handling large datasets, offering both speed and accuracy in retrieving similar items. This made it an ideal choice for this task that involves searching through large volumes of high-dimensional data i.e. identifying documents relevant to a particular query.
+
+*** LLM — Zephyr-7b-alpha**
+
